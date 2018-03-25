@@ -54,7 +54,6 @@ class Dog
   def self.create(row)
     dog = self.new(row)
     dog.save
-    #binding.pry
   end
 
   def self.find_by_id(id)
@@ -68,7 +67,6 @@ class Dog
   end
 
   def self.find_or_create_by(params)
-    #binding.pry
     sql = <<-SQL
       SELECT * FROM dogs WHERE name = ? AND breed = ?
     SQL
@@ -78,7 +76,7 @@ class Dog
     if !row.empty?
       attributes = {id: row[0], name: row[1], breed: row[2]}
       dog = self.new(attributes)
-      binding.pry
+      #binding.pry
     else
       dog = self.create(params)
     end
