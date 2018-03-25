@@ -72,6 +72,7 @@ class Dog
     SQL
 
     DB[:conn].execute(sql, name)
+    binding.pry 
   end
 
   def self.find_or_create_by(params)
