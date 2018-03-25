@@ -65,16 +65,20 @@ class Dog
   end
 
   def self.find_or_create_by(params)
-    binding.pry 
+    binding.pry
     sql = <<-SQL
       SELECT * FROM dogs WHERE name = ? AND breed = ?
     SQL
 
     row = DB[:conn].execute(sql, params[:name], params[:breed])[0]
-    
+
     if !row.empty?
-      
+      attributes = {id: row[0], name: row[1], breed: row[2]}
+      dog = self.new(attributes)
+    else 
+      dog = self.create(params)
     end
+    dog 
   end
 
 end
