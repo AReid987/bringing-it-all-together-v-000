@@ -65,7 +65,7 @@ class Dog
   end
 
   def self.find_or_create_by(params)
-    binding.pry
+    #binding.pry
     sql = <<-SQL
       SELECT * FROM dogs WHERE name = ? AND breed = ?
     SQL
@@ -78,7 +78,7 @@ class Dog
     else
       dog = self.create(params)
     end
-    dog 
+    dog
   end
 
 end
