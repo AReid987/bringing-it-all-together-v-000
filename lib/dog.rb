@@ -70,10 +70,6 @@ class Dog
     SQL
 
     row = DB[:conn].execute(sql)
-      end
-    end
-
-    #dog = find_by_id(row[0])
   end
 
 end
